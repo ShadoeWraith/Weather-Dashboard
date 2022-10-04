@@ -6,6 +6,13 @@ toggle.addEventListener('change', () => {
 });
 // end toggle dark mode
 
+const changeTemp = document.querySelector('.temp-type');
+const tempBtn = document.querySelector('.temp-name');
+
+changeTemp.addEventListener('change', () => {
+  tempBtn.classList.toggle('celsius');
+});
+
 const searchCity = document.querySelector('.search-bar');
 const submit = document.querySelector('.submit');
 
@@ -52,6 +59,8 @@ function displayWeather(data, name) {
 
   for (let i = 0; i < 5; i++) {
     let weatherIcon = data.daily[i].weather[0].main;
+    let fahrenheit = Math.round(data.daily[i].temp.day);
+    let celsius = (5 / 9) * (fahrenheit - 32);
 
     switch (weatherIcon) {
       case 'Clear':
@@ -99,6 +108,13 @@ function displayWeather(data, name) {
         icon = `<i class="fa-solid fa-tornado"></i>`;
         break;
     }
+    let tempType = fahrenheit;
+    let tempText = '<span class="temp-letter">&deg;F</span>';
+
+    if (tempBtn.classList.contains('celsius')) {
+      tempType = celsius;
+      tempText = '<span class="temp-letter">&deg;C</span>';
+    }
 
     // future days
     card.innerHTML +=
@@ -110,8 +126,9 @@ function displayWeather(data, name) {
       moment(data.daily[i].dt * 1000).format('MM/DD/YYYY') +
       `</h3>
       <span class="temp">` +
-      Math.round(data.daily[i].temp.day) +
-      `<span class="temp-type fahrenheit">&deg;F</span></span>` +
+      Math.round(tempType) +
+      tempText +
+      `</span>` +
       icon +
       `<span class="desc">` +
       data.daily[i].weather[0].description +

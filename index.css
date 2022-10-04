@@ -137,6 +137,76 @@ body {
   background-color: var(--submit-active);
 }
 
+.temp-type {
+  position: absolute;
+  opacity: 0;
+}
+
+.temp-label {
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+  position: relative;
+}
+
+.temp-check {
+  width: fit-content;
+  padding: .25rem;
+  display: flex;
+  margin: auto;
+  margin-top: 1.1rem;
+}
+
+.temp-name {
+  position: relative;
+}
+
+.temp-check .fahrenheit::after  {
+  position: absolute;
+  content: "Fahrenheit";
+  font-size: 1.5rem;
+  width: fit-content;
+  padding: .25rem;
+  border-radius: .2rem;
+  top: 0;
+  right: 5.5rem;
+  background-color: var(--submit-color);
+  color: var(--text-color);
+}
+
+.temp-check .fahrenheit:hover::after {
+  background-color: var(--submit-hover);
+}
+
+.temp-check .fahrenheit:active::after {
+  background-color: var(--submit-color);
+}
+
+.temp-check .celsius::after {
+  position: absolute;
+  content: "Celsius";
+  font-size: 1.5rem;
+  width: fit-content;
+  padding: .25rem;
+  border-radius: .2rem;
+  top: 0;
+  right: 7.86rem;
+  background-color: var(--submit-color);
+  color: var(--text-color);
+}
+
+.temp-check .celsius:hover::after {
+  background-color: var(--submit-hover);
+}
+
+.temp-check .celsius:active::after {
+  background-color: var(--submit-color);
+}
+
+.temp-check:hover {
+  cursor: pointer;
+}
+
 .card-container {
   display: flex;
   justify-content: center;
@@ -144,10 +214,11 @@ body {
   gap: 2rem;
   flex-wrap: wrap;
   max-width: 80%;
+  margin-bottom: 2rem;
 }
 
 .card {
-  margin-top: 2rem;
+  margin-top: 4rem;
   border-radius: .75rem;
   background-color: white;
   padding: 1.5rem;
@@ -174,7 +245,8 @@ body {
   position: relative;
 }
 
-.temp-type {
+.temp-letter {
+  color: var(--text-color);
   font-size: 2rem;
   position: absolute;
   top: .4rem;
@@ -221,5 +293,14 @@ body {
 
   .card {
     margin: auto;
+  }
+
+  .temp-check .fahrenheit::after {
+    right: 2.8rem;
+    top: -21.5rem;
+  }
+
+  .temp-check .celsius::after {
+    right: 5.15rem;
   }
 }
