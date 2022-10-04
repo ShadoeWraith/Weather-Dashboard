@@ -11,31 +11,37 @@
   --dark-toggle-bg: rgb(255, 255, 255);
   --dark-toggle-ball: rgb(255, 165, 0);
   --dark-submit: rgb(255, 65, 65);
+  --dark-submit-hover: rgb(248, 97, 97);
   
-  --light-bg: rgb(211, 211, 211);
+  --light-bg: rgb(198, 230, 252);
   --light-text: rgb(46, 46, 46);
   --light-card-text: rgb(46, 46, 46);
   --light-toggle-bg: rgb(17, 30, 82);
   --light-toggle-ball: rgb(255, 165, 0);
   --light-submit: rgb(80, 211, 150);
+  --light-submit-hover: rgb(135, 231, 186);
 }
 
 body.light {
-  --bg-color: rgb(198, 230, 252);
-  --text-color: rgb(46, 46, 46);
-  --card-text-color: rgb(46, 46, 46);
-  --toggle-bg-color: rgb(17, 30, 82);
-  --toggle-ball-color: rgb(255, 175, 4);
-  --submit-color: rgb(80, 211, 150);
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --card-text-color: var(--light-card-text);
+  --toggle-bg-color: var(--light-toggle-bg);
+  --toggle-ball-color: var(--light-toggle-ball);
+  --submit-color: var(--light-submit);
+  --submit-hover: var(--light-submit-hover);
+  --submit-active: var(--light-submit);
 }
 
 body.dark {
-  --bg-color: rgb(17, 30, 82);
-  --text-color: rgb(255, 255, 255);
-  --card-text-color: rgb(46, 46, 46);
-  --toggle-bg-color: rgb(255, 255, 255);
-  --toggle-ball-color: rgb(255, 165, 0);
-  --submit-color: rgb(255, 65, 65);
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --card-text-color: var(--dark-card-text);
+  --toggle-bg-color: var(--dark-toggle-bg);
+  --toggle-ball-color: var(--dark-toggle-ball);
+  --submit-color: var(--dark-submit);
+  --submit-hover: var(--dark-submit-hover);
+  --submit-active: var(--dark-submit);
 }
 
 body {
@@ -123,7 +129,12 @@ body {
 }
 
 .submit:hover {
+  background-color: var(--submit-hover);
   cursor: pointer;
+}
+
+.submit:active {
+  background-color: var(--submit-active);
 }
 
 .card-container {
