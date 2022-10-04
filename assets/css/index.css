@@ -4,12 +4,45 @@
   font-family: 'Merriweather Sans', sans-serif;
 }
 
-body {
-  background-color: #111e52;
-  color: rgb(46, 46, 46);
+:root {
+  --dark-bg: rgb(17, 30, 82);
+  --dark-text: rgb(255, 255, 255);
+  --dark-card-text: rgb(46, 46, 46);
+  --dark-toggle-bg: rgb(255, 255, 255);
+  --dark-toggle-ball: rgb(255, 165, 0);
+  --dark-submit: rgb(255, 65, 65);
+  
+  --light-bg: rgb(211, 211, 211);
+  --light-text: rgb(46, 46, 46);
+  --light-card-text: rgb(46, 46, 46);
+  --light-toggle-bg: rgb(17, 30, 82);
+  --light-toggle-ball: rgb(255, 165, 0);
+  --light-submit: rgb(80, 211, 150);
 }
 
-.app {
+body.light {
+  --bg-color: rgb(198, 230, 252);
+  --text-color: rgb(46, 46, 46);
+  --card-text-color: rgb(46, 46, 46);
+  --toggle-bg-color: rgb(17, 30, 82);
+  --toggle-ball-color: rgb(255, 175, 4);
+  --submit-color: rgb(80, 211, 150);
+}
+
+body.dark {
+  --bg-color: rgb(17, 30, 82);
+  --text-color: rgb(255, 255, 255);
+  --card-text-color: rgb(46, 46, 46);
+  --toggle-bg-color: rgb(255, 255, 255);
+  --toggle-ball-color: rgb(255, 165, 0);
+  --submit-color: rgb(255, 65, 65);
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.app-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,48 +53,61 @@ body {
 .title {
   font-size: 3rem;
   text-align: center;
-  color: white;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 
-.toggle {
+.header {
   display: flex;
   gap: 2rem;
 }
 
-.toggle-container {
-  background-color: white;
-  height: 2rem;
-  width: 4rem;
-  border-radius: 2rem;
-  border: none;
-  margin-top: .75rem;
+.checkbox {
+  opacity: 0;
+  position: absolute;
 }
 
-.pill {
-  height: 2rem;
-  width: 2rem;
-  background-color: rgb(252, 170, 19);
-  border-radius: 50%;
+.checkbox:checked + .label .ball {
+	transform: translateX(2rem);
 }
 
-.pill:hover {
-  background-color: rgb(252, 206, 55);
+.label {
+	background-color: var(--toggle-bg-color);
+	border-radius: 2rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  padding: .2rem;
+	position: relative;
+	height: 2rem;
+	width: 4rem;
+	transform: scale(1);
+  margin-top: .6rem;
 }
 
-.pill:active {
-  background-color: rgb(255, 166, 0);
+.ball {
+  background-color: var(--toggle-ball-color);
+	border-radius: 50%;
+	position: absolute;
+	top: .2rem;
+	left: .2rem;
+	height: 2rem;
+	width: 2rem;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
 }
 
 .search {
-  margin-right: 7rem;
+  display: flex;
+  justify-content: center;
 }
 
 .search-bar {
   border: none;
-  border-bottom: .15rem solid white;
-  background-color: #111e52;
-  color: white;
+  border-bottom: .15rem solid var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   outline: none;
   font-size: 2rem;
   margin-right: .5rem;
@@ -69,25 +115,21 @@ body {
 
 .submit {
   font-size: 1.5rem;
-  color: white;
-  background-color: rgb(255, 65, 65);
+  color: var(--text-color);
+  background-color: var(--submit-color);
   border: none;
   border-radius: .5rem;
   padding: .4rem;
 }
 
 .submit:hover {
-  background-color: rgb(255, 116, 116);
   cursor: pointer;
-}
-
-.submit:active {
-  background-color: rgb(252, 48, 48);
 }
 
 .card-container {
   display: flex;
   justify-content: center;
+  margin: auto;
   gap: 2rem;
   flex-wrap: wrap;
   max-width: 80%;
@@ -107,7 +149,7 @@ body {
 }
 
 .city {
-  color: rgb(59, 59, 59);
+  color: var(--card-text-color);
   font-size: 1.25rem;
 }
 
@@ -137,11 +179,11 @@ body {
 }
 
 @media screen and (max-width: 650px){
-  .toggle {
+  .header {
     flex-direction: column;
   }
 
-  .toggle-container {
+  .label {
     order: -1;
     position: absolute;
     top:0;
@@ -151,11 +193,22 @@ body {
   .search {
     margin-right: 0;
     display: flex;
+    margin: auto;
     flex-direction: column;
+    width: 90%;
   }
   
   .search-bar {
     margin-bottom: 1rem;
     text-align: center;
+  }
+
+  .card-container{
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .card {
+    margin: auto;
   }
 }

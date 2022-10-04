@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
   <script defer src="https://kit.fontawesome.com/fb5c4bf3d4.js" crossorigin="anonymous"></script>
+  <script defer src="./assets//js/darkmode.js"></script>
   <script defer src="./assets/js/index.js"></script>
   <title>Weather Dashboard</title>
 </head>
-<body>
-  <div class="app">
-    <div class="toggle">
-    <h1 class="title">Simple Weather App</h1>
-    <button class="toggle-container">
-      <div class="pill"></div>
-    </button>
+<body class="light">
+  <div class="app-header">
+    <div class="header">
+      <h1 class="title">Simple Weather App</h1>
+      <input type="checkbox" class="checkbox" id="check"/>
+      <label class="label" for="check">
+        <div type="checkbox" class="ball"></div>
+      </label>
+    </div>
   </div>
     <div class="search">
       <input type="text" class="search-bar" placeholder="Search for a city">
@@ -54,7 +57,7 @@
       <div class="card">
         <h2 class="city">Denver</h2>
         <h3 class="day">Fri</h3>
-        <span class="temp">59<span class="temp-type fahrenheit">&deg;F</span></span>
+        <span class="temp">58<span class="temp-type fahrenheit">&deg;F</span></span>
         <i class="icon fa-solid fa-cloud-bolt"></i>
         <span class="desc">Thunderstorms</span>
       </div>
