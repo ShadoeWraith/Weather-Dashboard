@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+body {
+  background-color: #111e52;
+  color: rgb(46, 46, 46);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.toggle {
+  display: flex;
+  gap: 2rem;
+}
+
+.toggle-container {
+  background-color: white;
+  height: 2rem;
+  width: 4rem;
+  border-radius: 2rem;
+  border: none;
+  margin-top: .75rem;
+}
+
+.pill {
+  height: 2rem;
+  width: 2rem;
+  background-color: rgb(252, 170, 19);
+  border-radius: 50%;
+}
+
+.pill:hover {
+  background-color: rgb(252, 206, 55);
+}
+
+.pill:active {
+  background-color: rgb(255, 166, 0);
+}
+
+.search {
+  margin-right: 7rem;
+}
+
+.search-bar {
+  border: none;
+  border-bottom: .15rem solid white;
+  background-color: #111e52;
+  color: white;
+  outline: none;
+  font-size: 2rem;
+  margin-right: .5rem;
+}
+
+.submit {
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(255, 65, 65);
+  border: none;
+  border-radius: .5rem;
+  padding: .4rem;
+}
+
+.submit:hover {
+  background-color: rgb(255, 116, 116);
+  cursor: pointer;
+}
+
+.submit:active {
+  background-color: rgb(252, 48, 48);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.card {
+  margin-top: 2rem;
+  border-radius: .75rem;
+  background-color: white;
+  padding: 1.5rem;
+  min-width: 12rem;
+  min-height: 15rem;
+  max-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -.3rem .3rem gray;
+}
+
+.city {
+  color: rgb(59, 59, 59);
+  font-size: 1.25rem;
+}
+
+.day {
+  color: rgb(131, 131, 131);
+}
+
+.temp {
+  font-weight: bold;
+  font-size: 4rem;
+  position: relative;
+}
+
+.temp-type {
+  font-size: 2rem;
+  position: absolute;
+  top: .4rem;
+}
+
+.icon {
+  font-size: 5rem;
+}
+
+.desc {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 650px){
+  .toggle {
+    flex-direction: column;
+  }
+
+  .toggle-container {
+    order: -1;
+    position: absolute;
+    top:0;
+    right: 1rem;
+  }
+
+  .search {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search-bar {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
