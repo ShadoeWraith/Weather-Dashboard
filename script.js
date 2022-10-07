@@ -29,6 +29,9 @@ function searchInput(e) {
   fetch(getLatAndLon).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
+        if (prevSearch.length == 1) {
+          prevSearch.shift();
+        }
         saveCity(
           prevSearch.push({
             name: data[0].name,
