@@ -57,6 +57,7 @@ function getCurrentWeather(lat, lon, name) {
   fetch(openWeatherUrl).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
+        console.log(data);
         displayWeather(data, name);
       });
     }
@@ -149,10 +150,6 @@ function displayWeather(data, name) {
   }
 }
 
-function recentSearch() {
-  getCurrentWeather(prevSearch.lat, prevSearch.lon, prevSearch.name);
-}
-
 function saveCity() {
   localStorage.setItem('City', JSON.stringify(prevSearch));
 }
@@ -167,3 +164,5 @@ function loadCity() {
 
 submit.addEventListener('click', searchInput);
 tempBtn.addEventListener('click', loadCity);
+
+loadCity();
