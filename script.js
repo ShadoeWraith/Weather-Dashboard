@@ -16,6 +16,8 @@ changeTemp.addEventListener('change', () => {
 const searchCity = document.querySelector('.search-bar');
 const submit = document.querySelector('.submit');
 
+var prevSearch = [];
+
 function searchInput(e) {
   e.preventDefault();
 
@@ -27,6 +29,13 @@ function searchInput(e) {
   fetch(getLatAndLon).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
+        saveCity(
+          prevSearch.push({
+            name: data[0].name,
+            lat: data[0].lat,
+            lon: data[0].lon,
+          })
+        );
         getCurrentWeather(data[0].lat, data[0].lon, data[0].name);
         searchCity.value = '';
       });
@@ -137,4 +146,21 @@ function displayWeather(data, name) {
   }
 }
 
+function recentSearch() {
+  getCurrentWeather(prevSearch.lat, prevSearch.lon, prevSearch.name);
+}
+
+function saveCity() {
+  localStorage.setItem('City', JSON.stringify(prevSearch));
+}
+
+function loadCity() {
+  prevSearch = JSON.parse(localStorage.getItem('City'));
+  if (prevSearch == null) {
+    prevSearch = [];
+  }
+  getCurrentWeather(prevSearch[0].lat, prevSearch[0].lon, prevSearch[0].name);
+}
+
 submit.addEventListener('click', searchInput);
+tempBtn.addEventListener('click', loadCity);
