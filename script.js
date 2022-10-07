@@ -57,7 +57,6 @@ function getCurrentWeather(lat, lon, name) {
   fetch(openWeatherUrl).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
-        console.log(data);
         displayWeather(data, name);
       });
     }
