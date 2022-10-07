@@ -48,6 +48,11 @@ body {
   background-color: var(--bg-color);
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 .app-header {
   display: flex;
   flex-direction: column;
@@ -260,6 +265,43 @@ body {
   margin-top: 1.5rem;
 }
 
+.link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20rem;
+  gap: 3rem;
+  font-size: 2.5rem;
+  color: var(--text-color)
+}
+
+.link {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.link:hover {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  width: .25rem;
+  height: 100%;
+  background-color: var(--submit-color);
+  left: -1rem;
+  transform-origin: center;
+  transform: scale(0);
+  transition: 300ms;
+}
+
+.link:hover::after {
+  transform: scale(1);
+
+}
+
 @media screen and (max-width: 650px){
   .header {
     flex-direction: column;
@@ -301,5 +343,9 @@ body {
 
   .temp-check .celsius::after {
     right: 5.15rem;
+  }
+
+  .link-container {
+    min-height: 5rem;
   }
 }
