@@ -57,6 +57,7 @@ function getCurrentWeather(lat, lon, name) {
   fetch(openWeatherUrl).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
+        console.log(data);
         displayWeather(data, name);
       });
     }
@@ -71,7 +72,7 @@ function displayWeather(data, name) {
 
   for (let i = 0; i < 5; i++) {
     let weatherIcon = data.daily[i].weather[0].main;
-    let fahrenheit = Math.round(data.daily[i].temp.day);
+    let fahrenheit = Math.round(data.daily[i].temp.max);
     let celsius = (5 / 9) * (fahrenheit - 32);
 
     switch (weatherIcon) {
