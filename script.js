@@ -57,7 +57,6 @@ function getCurrentWeather(lat, lon, name) {
   fetch(openWeatherUrl).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
-        console.log(data);
         displayWeather(data, name);
       });
     }
@@ -123,10 +122,16 @@ function displayWeather(data, name) {
     }
     let tempType = fahrenheit;
     let tempText = '<span class="temp-letter">&deg;F</span>';
+    let current = data.current.temp;
 
     if (tempBtn.classList.contains('celsius')) {
       tempType = celsius;
+      current = celsius;
       tempText = '<span class="temp-letter">&deg;C</span>';
+    }
+
+    if (i < 1) {
+      tempType = current;
     }
 
     // future days
