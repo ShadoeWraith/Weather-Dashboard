@@ -71,7 +71,7 @@ function displayWeather(data, name) {
 
   for (let i = 0; i < 5; i++) {
     let weatherIcon = data.daily[i].weather[0].main;
-    let fahrenheit = Math.round(data.daily[i].temp.max);
+    let fahrenheit = data.daily[i].temp.max;
     let celsius = (5 / 9) * (fahrenheit - 32);
 
     switch (weatherIcon) {
